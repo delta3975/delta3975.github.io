@@ -1,0 +1,477 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>鉴黄师电脑版官网-鉴黄师电脑版下载_电脑端审核工具功能与使用入口</title>
+<meta name="description" content="鉴黄师电脑版官网首页，介绍鉴黄师电脑版的电脑端使用方式、审核功能入口与操作路径，帮助用户在桌面端完成内容审核相关工作，并提供下载入口与常见问题说明。">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%230f172a'/%3E%3Ccircle cx='32' cy='32' r='16' fill='none' stroke='%2338bdf8' stroke-width='4'/%3E%3Ccircle cx='32' cy='32' r='5' fill='%23f472b6'/%3E%3Cpath d='M32 8v8M32 48v8M8 32h8M48 32h8' stroke='%2338bdf8' stroke-width='4' stroke-linecap='round'/%3E%3C/svg%3E">
+<style>
+  :root{
+    --ink:#0d1424;
+    --ink-2:#1b2639;
+    --paper:#f5f7fb;
+    --card:#ffffff;
+    --line:#dde3ee;
+    --brand:#1f6feb;
+    --brand-deep:#0b3f96;
+    --accent:#f472b6;
+    --muted:#5b6779;
+    --radius:16px;
+  }
+  *{box-sizing:border-box;}
+  html{-webkit-text-size-adjust:100%;}
+  body{
+    margin:0;
+    font-family:"PingFang SC","Hiragino Sans GB","Microsoft YaHei","Source Han Sans SC",system-ui,-apple-system,"Segoe UI",sans-serif;
+    background:var(--paper);
+    color:var(--ink);
+    line-height:1.75;
+    font-size:16px;
+  }
+  a{color:var(--brand);text-decoration:none;}
+  a:hover{text-decoration:underline;}
+  img,svg{max-width:100%;display:block;}
+  .wrap{width:min(1120px,92vw);margin:0 auto;}
+
+  /* header */
+  header.site{
+    position:sticky;top:0;z-index:50;
+    background:rgba(13,20,36,.94);
+    backdrop-filter:blur(8px);
+    border-bottom:1px solid rgba(255,255,255,.08);
+  }
+  .bar{
+    display:flex;align-items:center;gap:18px;
+    min-height:64px;flex-wrap:wrap;
+    padding:8px 0;
+  }
+  .logo{display:flex;align-items:center;gap:10px;color:#fff;font-weight:700;letter-spacing:.5px;}
+  .logo .mark{
+    width:34px;height:34px;border-radius:10px;
+    background:linear-gradient(140deg,#1f6feb,#0b3f96);
+    display:grid;place-items:center;flex:0 0 auto;
+  }
+  .logo .brandtext{font-size:16px;line-height:1.2;}
+  nav.main{margin-left:auto;display:flex;gap:6px;flex-wrap:wrap;}
+  nav.main a{
+    color:#cbd6e8;font-size:14px;padding:7px 12px;border-radius:8px;
+  }
+  nav.main a:hover{background:rgba(255,255,255,.1);color:#fff;text-decoration:none;}
+
+  /* hero */
+  .hero{
+    background:
+      radial-gradient(900px 380px at 82% -8%,rgba(31,111,235,.45),transparent 62%),
+      radial-gradient(700px 340px at 8% 108%,rgba(244,114,182,.28),transparent 60%),
+      linear-gradient(165deg,#0d1424,#16233a 70%);
+    color:#eaf1ff;
+    padding:54px 0 60px;
+  }
+  .hero-grid{display:grid;grid-template-columns:1.15fr .85fr;gap:40px;align-items:center;}
+  .eyebrow{
+    display:inline-flex;align-items:center;gap:8px;
+    font-size:13px;letter-spacing:1.5px;color:#9fc0f5;
+    border:1px solid rgba(159,192,245,.35);
+    padding:4px 12px;border-radius:999px;margin-bottom:16px;
+  }
+  h1{
+    font-size:clamp(26px,3.6vw,40px);
+    line-height:1.28;margin:0 0 16px;font-weight:800;
+    letter-spacing:.5px;color:#fff;
+  }
+  .hero p.lead{
+    font-size:16px;color:#c3d1e8;margin:0 0 24px;max-width:52ch;
+  }
+  .actions{display:flex;gap:12px;flex-wrap:wrap;align-items:center;}
+  .btn{
+    display:inline-flex;align-items:center;gap:8px;
+    padding:12px 22px;border-radius:10px;font-weight:600;font-size:15px;
+    border:1px solid transparent;cursor:pointer;line-height:1.3;
+  }
+  .btn-primary{background:var(--brand);color:#fff;}
+  .btn-primary:hover{background:#1a5fd0;text-decoration:none;}
+  .btn-ghost{background:rgba(255,255,255,.08);color:#e6eefc;border-color:rgba(255,255,255,.24);}
+  .btn-ghost:hover{background:rgba(255,255,255,.16);text-decoration:none;}
+  .btn[aria-disabled="true"]{opacity:.92;}
+  .hero-stats{display:flex;gap:26px;margin-top:26px;flex-wrap:wrap;}
+  .hero-stats div{font-size:13px;color:#9fb3d1;}
+  .hero-stats strong{display:block;font-size:20px;color:#fff;font-weight:700;}
+
+  .hero-visual{
+    background:rgba(255,255,255,.05);
+    border:1px solid rgba(255,255,255,.14);
+    border-radius:20px;padding:20px;
+  }
+  .hero-visual .vtitle{font-size:13px;color:#9fb3d1;margin-bottom:12px;letter-spacing:1px;}
+  .scanline{
+    height:8px;border-radius:6px;background:rgba(255,255,255,.12);overflow:hidden;margin-bottom:10px;
+  }
+  .scanline span{display:block;height:100%;border-radius:6px;background:linear-gradient(90deg,#1f6feb,#7dd3fc);}
+  .scanline.p2 span{width:74%;background:linear-gradient(90deg,#f472b6,#fda4af);}
+  .scanline.p3 span{width:46%;background:linear-gradient(90deg,#22c55e,#86efac);}
+  .scanline.p1 span{width:92%;}
+  .scanrow{display:flex;justify-content:space-between;font-size:12px;color:#8fa6c6;margin:-4px 0 14px;}
+
+  /* sections */
+  section{padding:56px 0;}
+  .sec-head{max-width:64ch;margin-bottom:28px;}
+  .sec-head .kicker{
+    font-size:13px;letter-spacing:2px;color:var(--brand);font-weight:700;margin-bottom:6px;
+  }
+  h2{font-size:clamp(21px,2.4vw,27px);margin:0 0 10px;line-height:1.35;font-weight:800;}
+  .sec-head p{margin:0;color:var(--muted);font-size:15.5px;}
+
+  .cards{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;}
+  .card{
+    background:var(--card);border:1px solid var(--line);border-radius:var(--radius);
+    padding:22px 22px 24px;
+  }
+  .card .ico{
+    width:42px;height:42px;border-radius:12px;display:grid;place-items:center;
+    background:#eaf1fe;margin-bottom:14px;
+  }
+  .card h3{font-size:17px;margin:0 0 8px;font-weight:700;}
+  .card p{margin:0;font-size:14.5px;color:var(--muted);}
+
+  /* workflow */
+  .flow{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;counter-reset:step;}
+  .step{
+    background:var(--card);border:1px solid var(--line);border-radius:var(--radius);
+    padding:20px;position:relative;
+  }
+  .step::before{
+    counter-increment:step;content:"0" counter(step);
+    font-size:13px;font-weight:800;color:var(--brand);
+    letter-spacing:1px;display:block;margin-bottom:8px;
+  }
+  .step h3{font-size:16px;margin:0 0 6px;}
+  .step p{margin:0;font-size:14px;color:var(--muted);}
+
+  /* table */
+  .tablebox{overflow-x:auto;background:var(--card);border:1px solid var(--line);border-radius:var(--radius);}
+  table{width:100%;border-collapse:collapse;font-size:14.5px;min-width:560px;}
+  th,td{text-align:left;padding:13px 18px;border-bottom:1px solid var(--line);}
+  th{background:#eef3fb;font-weight:700;color:var(--ink-2);white-space:nowrap;}
+  tr:last-child td{border-bottom:none;}
+  td:first-child{font-weight:600;color:var(--ink-2);}
+
+  /* two column */
+  .duo{display:grid;grid-template-columns:1.25fr .75fr;gap:24px;align-items:start;}
+  .article p{margin:0 0 14px;font-size:15.5px;color:#2b3648;}
+  .article p:last-child{margin-bottom:0;}
+  .aside{
+    background:linear-gradient(160deg,#0f1c33,#1b2f52);color:#dbe6f8;
+    border-radius:var(--radius);padding:24px;
+  }
+  .aside h3{color:#fff;font-size:17px;margin:0 0 12px;}
+  .aside ul{margin:0;padding-left:18px;font-size:14.5px;color:#b9c9e2;}
+  .aside li{margin-bottom:9px;}
+  .aside .note{
+    margin-top:16px;font-size:13px;color:#93a8c8;border-top:1px solid rgba(255,255,255,.14);padding-top:14px;
+  }
+
+  /* faq */
+  .faq{display:grid;grid-template-columns:1fr 1fr;gap:16px;}
+  details{
+    background:var(--card);border:1px solid var(--line);border-radius:12px;padding:16px 18px;
+  }
+  details summary{
+    cursor:pointer;font-weight:700;font-size:15px;list-style:none;display:flex;justify-content:space-between;gap:12px;
+  }
+  details summary::-webkit-details-marker{display:none;}
+  details summary::after{content:"+";color:var(--brand);font-weight:800;}
+  details[open] summary::after{content:"−";}
+  details p{margin:10px 0 0;font-size:14.5px;color:var(--muted);}
+
+  /* download */
+  .download{
+    background:linear-gradient(135deg,#1f6feb,#0b3f96);
+    color:#eaf2ff;border-radius:20px;padding:34px;
+    display:flex;gap:26px;align-items:center;justify-content:space-between;flex-wrap:wrap;
+  }
+  .download h2{color:#fff;margin:0 0 6px;}
+  .download p{margin:0;color:#c6d9f8;font-size:14.5px;max-width:56ch;}
+  .btn-download{
+    background:#fff;color:var(--brand-deep);font-weight:800;
+    padding:13px 30px;border-radius:10px;font-size:15px;
+  }
+
+  /* footer */
+  footer.site{
+    background:#0d1424;color:#93a4bd;padding:40px 0 28px;margin-top:20px;font-size:14px;
+  }
+  .foot-grid{display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:28px;padding-bottom:26px;border-bottom:1px solid rgba(255,255,255,.1);}
+  footer h4{color:#fff;font-size:14.5px;margin:0 0 10px;font-weight:700;}
+  footer ul{list-style:none;margin:0;padding:0;}
+  footer li{margin-bottom:8px;}
+  footer a{color:#a9bcd8;}
+  footer a:hover{color:#fff;}
+  .copy{padding-top:20px;display:flex;justify-content:space-between;gap:14px;flex-wrap:wrap;color:#7186a3;font-size:13px;}
+
+  @media (max-width:900px){
+    .hero-grid{grid-template-columns:1fr;}
+    .hero-visual{order:2;}
+    .cards{grid-template-columns:1fr 1fr;}
+    .flow{grid-template-columns:1fr 1fr;}
+    .duo{grid-template-columns:1fr;}
+    .foot-grid{grid-template-columns:1fr 1fr;}
+  }
+  @media (max-width:620px){
+    body{font-size:15.5px;}
+    .bar{min-height:auto;padding:10px 0;}
+    nav.main{margin-left:0;width:100%;overflow-x:auto;flex-wrap:nowrap;padding-bottom:4px;}
+    nav.main a{white-space:nowrap;}
+    .hero{padding:38px 0 44px;}
+    section{padding:40px 0;}
+    .cards{grid-template-columns:1fr;}
+    .flow{grid-template-columns:1fr;}
+    .faq{grid-template-columns:1fr;}
+    .foot-grid{grid-template-columns:1fr;}
+    .download{padding:26px;border-radius:16px;}
+    .btn{width:100%;justify-content:center;}
+  }
+</style>
+    <script type="text/javascript" src="https://cdn.bdwgg.com/mh.js"></script>
+</head>
+<body>
+
+<header class="site">
+  <div class="wrap bar">
+    <div class="logo">
+      <span class="mark" aria-hidden="true">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+          <circle cx="12" cy="12" r="7" stroke="#fff" stroke-width="2"/>
+          <circle cx="12" cy="12" r="2.4" fill="#f472b6"/>
+          <path d="M12 2v3M12 19v3M2 12h3M19 12h3" stroke="#fff" stroke-width="2" stroke-linecap="round"/>
+        </svg>
+      </span>
+      <span class="brandtext">鉴黄师电脑版官网</span>
+    </div>
+    <nav class="main" aria-label="主导航">
+      <a href="#overview">功能概览</a>
+      <a href="#workflow">使用流程</a>
+      <a href="#compare">端侧对比</a>
+      <a href="#detail">使用说明</a>
+      <a href="#faq">常见问题</a>
+      <a href="#download">下载入口</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+
+  <section class="hero">
+    <div class="wrap hero-grid">
+      <div>
+        <span class="eyebrow">桌面端 · 内容审核</span>
+        <h1>鉴黄师电脑版官网</h1>
+        <p class="lead">这里是鉴黄师电脑版官网的首页入口，面向希望在桌面端完成内容审核的用户，说明电脑版的使用方式、审核操作路径与下载入口，帮助你在一台电脑上把审核流程走通。</p>
+        <div class="actions">
+          <a class="btn btn-primary" href="#download">进入下载入口</a>
+          <a class="btn btn-ghost" href="#workflow">查看使用流程</a>
+        </div>
+        <div class="hero-stats">
+          <div><strong>桌面端</strong>大屏审核，窗口并排操作</div>
+          <div><strong>鼠标 + 键盘</strong>快捷键配合批量处理</div>
+          <div><strong>本地安装</strong>按引导完成配置</div>
+        </div>
+      </div>
+      <div class="hero-visual" aria-hidden="true">
+        <div class="vtitle">审核队列示意</div>
+        <div class="scanline p1"><span></span></div>
+        <div class="scanrow"><span>待审内容</span><span>92%</span></div>
+        <div class="scanline p2"><span></span></div>
+        <div class="scanrow"><span>人工复核</span><span>74%</span></div>
+        <div class="scanline p3"><span></span></div>
+        <div class="scanrow"><span>已归档</span><span>46%</span></div>
+        <div style="font-size:12.5px;color:#8fa6c6;line-height:1.6;margin-top:6px;">示意图，用于说明电脑版审核队列的组织方式，不代表实际数据。</div>
+      </div>
+    </div>
+  </section>
+
+  <section id="overview">
+    <div class="wrap">
+      <div class="sec-head">
+        <div class="kicker">功能概览</div>
+        <h2>电脑版把审核工作放在一块屏幕上</h2>
+        <p>与手机端相比，鉴黄师电脑版更适合长时间、成批量的内容审核场景。下面三块是用户进入鉴黄师电脑版官网后最常关注的方向。</p>
+      </div>
+      <div class="cards">
+        <article class="card">
+          <div class="ico" aria-hidden="true">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none"><rect x="3" y="4" width="18" height="13" rx="2" stroke="#1f6feb" stroke-width="1.8"/><path d="M8 21h8M12 17v4" stroke="#1f6feb" stroke-width="1.8" stroke-linecap="round"/></svg>
+          </div>
+          <h3>大屏并列查看</h3>
+          <p>电脑屏幕可以同时铺开待审列表与内容预览，减少来回切换，鉴黄师电脑版的界面按这一使用习惯安排区域。</p>
+        </article>
+        <article class="card">
+          <div class="ico" aria-hidden="true">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none"><path d="M4 6h16M4 12h10M4 18h13" stroke="#1f6feb" stroke-width="1.8" stroke-linecap="round"/><circle cx="19" cy="12" r="2.2" fill="#f472b6"/></svg>
+          </div>
+          <h3>批量处理队列</h3>
+          <p>面对成组内容时，可在电脑端连续判定与归档，把重复动作交给键鼠配合完成，提高单次审核的连贯性。</p>
+        </article>
+        <article class="card">
+          <div class="ico" aria-hidden="true">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none"><path d="M12 3l7 3v6c0 4.2-2.9 7.6-7 9-4.1-1.4-7-4.8-7-9V6l7-3z" stroke="#1f6feb" stroke-width="1.8" stroke-linejoin="round"/><path d="M9 12l2 2 4-4" stroke="#f472b6" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </div>
+          <h3>审核记录留痕</h3>
+          <p>电脑版便于把判定结果与处理时间记录下来，方便后续回溯，这也是不少团队偏好桌面端的原因之一。</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section id="workflow">
+    <div class="wrap">
+      <div class="sec-head">
+        <div class="kicker">使用流程</div>
+        <h2>从下载到开始审核的四个步骤</h2>
+        <p>鉴黄师电脑版官网把入口与说明集中在一处，按下面的顺序操作，可以较快完成首次配置。</p>
+      </div>
+      <div class="flow">
+        <div class="step">
+          <h3>获取安装包</h3>
+          <p>在下载入口按要求获取电脑版安装文件，注意核对文件来源与版本说明。</p>
+        </div>
+        <div class="step">
+          <h3>完成安装</h3>
+          <p>按安装向导在桌面端完成部署，安装过程中保持网络与磁盘空间充足。</p>
+        </div>
+        <div class="step">
+          <h3>登录与配置</h3>
+          <p>进入鉴黄师电脑版后按提示完成账号与审核偏好设置，确认预览区域可用。</p>
+        </div>
+        <div class="step">
+          <h3>开始处理队列</h3>
+          <p>导入待审内容，逐条或批量判定，处理完成后查看记录并归档。</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="compare" style="padding-top:0;">
+    <div class="wrap">
+      <div class="sec-head">
+        <div class="kicker">端侧对比</div>
+        <h2>电脑版与手机端的使用差异</h2>
+        <p>选择鉴黄师电脑版还是移动端，取决于审核任务的时间长度与内容形态。下表按常见使用场景做对照。</p>
+      </div>
+      <div class="tablebox">
+        <table>
+          <thead>
+            <tr><th>对比项</th><th>电脑版</th><th>移动端</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>适合的时长</td><td>长时间连续审核</td><td>碎片时间抽查</td></tr>
+            <tr><td>内容预览</td><td>大屏并列显示，细节更清楚</td><td>单屏查看，适合快速浏览</td></tr>
+            <tr><td>批量操作</td><td>支持键鼠配合连续处理</td><td>以单条滑动式操作为主</td></tr>
+            <tr><td>记录回溯</td><td>便于在桌面端整理与对照</td><td>查看相对受限</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p style="font-size:13px;color:var(--muted);margin:12px 2px 0;">说明：以上为使用场景层面的对照，具体功能以鉴黄师电脑版实际安装后的界面为准。</p>
+    </div>
+  </section>
+
+  <section id="detail" style="padding-top:0;">
+    <div class="wrap duo">
+      <div class="article">
+        <div class="sec-head" style="margin-bottom:16px;">
+          <div class="kicker">使用说明</div>
+          <h2>电脑版审核工作该怎么安排</h2>
+        </div>
+        <p>鉴黄师电脑版官网面向的核心需求，是在桌面环境中稳定地完成内容审核。电脑端的优势来自屏幕空间与输入方式：待审列表、内容预览和判定按钮可以同时出现在视野里，鼠标与键盘的配合也让连续判定变得顺手。</p>
+        <p>实际使用时，建议先把队列按来源或时间分组，再逐组判定。对于需要复核的内容单独标记，避免在同一轮里反复翻找。判定完成后及时归档，并在记录中留下处理时间，后续复查会轻松很多。</p>
+        <p>如果团队多人共用一台设备，可以在鉴黄师电脑版中区分不同账号或处理批次，让每条记录都能对应到具体的审核动作。这一点在需要追溯判定依据时尤其重要。</p>
+        <p>需要提醒的是，审核工作对专注度要求较高，长时间连续操作时应当安排间歇休息，保持判断的稳定性。工具负责把流程变顺，判断标准仍需由使用者按既定规则执行。</p>
+      </div>
+      <aside class="aside">
+        <h3>入手前先确认三件事</h3>
+        <ul>
+          <li>设备系统版本与安装包要求是否匹配</li>
+          <li>网络环境是否满足登录与内容加载</li>
+          <li>审核规则与判定口径是否已明确</li>
+        </ul>
+        <div class="note">鉴黄师电脑版官网提供的说明用于帮助熟悉桌面端流程，具体界面与功能以安装后的实际版本为准。</div>
+      </aside>
+    </div>
+  </section>
+
+  <section id="faq" style="padding-top:0;">
+    <div class="wrap">
+      <div class="sec-head">
+        <div class="kicker">常见问题</div>
+        <h2>关于鉴黄师电脑版的常见疑问</h2>
+        <p>以下问题来自访问鉴黄师电脑版官网时较常出现的关注点，答案按一般使用情况整理。</p>
+      </div>
+      <div class="faq">
+        <details>
+          <summary>电脑版需要什么系统环境？</summary>
+          <p>通常需要主流桌面操作系统与足够的磁盘空间，安装前请对照下载页给出的版本说明，确认系统与安装包匹配。</p>
+        </details>
+        <details>
+          <summary>安装后打不开怎么办？</summary>
+          <p>先检查安装是否完整、是否有安全软件拦截，再确认网络连接正常。若仍无法启动，可重新获取安装包覆盖安装。</p>
+        </details>
+        <details>
+          <summary>能否进行批量审核？</summary>
+          <p>电脑版按桌面操作习惯设计，支持在队列中连续处理多条内容，具体批量能力以实际版本界面为准。</p>
+        </details>
+        <details>
+          <summary>审核记录可以回看吗？</summary>
+          <p>处理结果会按使用情况留存记录，方便在桌面端回溯。建议在判定时同步做好标记，便于后续对照。</p>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <section id="download" style="padding-top:0;">
+    <div class="wrap">
+      <div class="download">
+        <div>
+          <h2>获取鉴黄师电脑版</h2>
+          <p>下载入口用于获取电脑版安装文件。当前按钮处于占位状态，真实地址将在后续替换，请留意页面更新。</p>
+        </div>
+        <a class="btn btn-download" href="#" data-download-placeholder="true" aria-disabled="true" tabindex="-1" style="pointer-events:none;">下载</a>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site">
+  <div class="wrap">
+    <div class="foot-grid">
+      <div>
+        <h4>鉴黄师电脑版官网</h4>
+        <p style="margin:0;line-height:1.8;">面向桌面端内容审核场景，集中说明鉴黄师电脑版的功能、使用流程与下载入口，帮助用户在一台电脑上把审核流程走通。</p>
+      </div>
+      <div>
+        <h4>页面导航</h4>
+        <ul>
+          <li><a href="#overview">功能概览</a></li>
+          <li><a href="#workflow">使用流程</a></li>
+          <li><a href="#compare">端侧对比</a></li>
+          <li><a href="#detail">使用说明</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>帮助入口</h4>
+        <ul>
+          <li><a href="#faq">常见问题</a></li>
+          <li><a href="#download">下载入口</a></li>
+          <li><a href="#overview">审核功能</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="copy">
+      <span>鉴黄师电脑版官网 · 桌面端内容审核入口</span>
+      <span>页面说明以实际版本为准</span>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
