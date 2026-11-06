@@ -1,0 +1,445 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>91漫画免费版-免费漫画在线阅读_下拉式漫画_多题材漫画书架</title>
+<meta name="description" content="91漫画免费版主题首页，汇集免费漫画在线阅读入口、下拉式阅读体验、多题材漫画书架与热门作品推荐，帮助读者快速找到想看的漫画并了解阅读方式与常见问题。">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%23ff5a36'/%3E%3Cpath d='M16 18h14a8 8 0 0 1 8 8v22a6 6 0 0 0-6-6H16z' fill='%23fff'/%3E%3Cpath d='M48 18H38a8 8 0 0 0-8 8v22a6 6 0 0 1 6-6h12z' fill='%23ffe2d9'/%3E%3C/svg%3E">
+<style>
+:root{
+  --ink:#1d1b2e;
+  --ink-soft:#4b4860;
+  --muted:#7a7690;
+  --paper:#fbf7f2;
+  --card:#ffffff;
+  --accent:#ff5a36;
+  --accent-deep:#e03d1c;
+  --accent-soft:#ffe6de;
+  --line:#ece4da;
+  --shadow:0 10px 30px rgba(60,40,30,.08);
+  --radius:16px;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  margin:0;
+  background:var(--paper);
+  color:var(--ink);
+  font-family:"PingFang SC","Hiragino Sans GB","Microsoft YaHei","Noto Sans SC",system-ui,sans-serif;
+  line-height:1.75;
+  -webkit-font-smoothing:antialiased;
+}
+a{color:inherit;text-decoration:none}
+img,svg{display:block}
+.wrap{width:min(1120px,92vw);margin:0 auto}
+
+/* ---------- header ---------- */
+.site-head{
+  position:sticky;top:0;z-index:40;
+  background:rgba(251,247,242,.92);
+  backdrop-filter:blur(10px);
+  border-bottom:1px solid var(--line);
+}
+.head-inner{display:flex;align-items:center;gap:22px;height:70px}
+.logo{display:flex;align-items:center;gap:10px;flex-shrink:0}
+.logo-mark{width:38px;height:38px;border-radius:11px;background:linear-gradient(135deg,#ff7a4d,#e03d1c);display:grid;place-items:center;box-shadow:0 6px 14px rgba(224,61,28,.28)}
+.logo-mark svg{width:22px;height:22px}
+.logo-text{font-size:18px;font-weight:800;letter-spacing:.3px;white-space:nowrap}
+.nav{display:flex;gap:6px;margin-left:auto;flex-wrap:wrap}
+.nav a{
+  padding:7px 13px;border-radius:999px;font-size:14.5px;color:var(--ink-soft);
+  transition:.2s;
+}
+.nav a:hover{background:var(--accent-soft);color:var(--accent-deep)}
+.nav a.cta{background:var(--accent);color:#fff;font-weight:600}
+.nav a.cta:hover{background:var(--accent-deep);color:#fff}
+
+/* ---------- hero ---------- */
+.hero{padding:56px 0 44px;position:relative;overflow:hidden}
+.hero-inner{display:grid;grid-template-columns:1.15fr .85fr;gap:48px;align-items:center}
+.eyebrow{
+  display:inline-flex;align-items:center;gap:8px;
+  font-size:13px;letter-spacing:1px;color:var(--accent-deep);
+  background:var(--accent-soft);padding:6px 14px;border-radius:999px;font-weight:600;
+}
+.hero h1{
+  font-size:clamp(30px,4.4vw,46px);
+  line-height:1.24;margin:18px 0 16px;letter-spacing:-.5px;
+  font-weight:900;
+}
+.hero h1 em{font-style:normal;color:var(--accent-deep);position:relative}
+.hero p.lead{font-size:16px;color:var(--ink-soft);margin:0 0 26px;max-width:52ch}
+.hero-actions{display:flex;gap:14px;flex-wrap:wrap;align-items:center}
+.btn{
+  display:inline-flex;align-items:center;gap:8px;
+  padding:13px 26px;border-radius:999px;font-weight:700;font-size:15px;
+  transition:.22s;border:1.5px solid transparent;cursor:pointer;
+}
+.btn-primary{background:var(--accent);color:#fff;box-shadow:0 10px 22px rgba(224,61,28,.28)}
+.btn-primary:hover{background:var(--accent-deep);transform:translateY(-1px)}
+.btn-ghost{background:#fff;border-color:var(--line);color:var(--ink)}
+.btn-ghost:hover{border-color:var(--accent);color:var(--accent-deep)}
+.hero-visual{position:relative;display:grid;place-items:center}
+.hero-visual svg{width:100%;max-width:340px;height:auto;filter:drop-shadow(0 18px 34px rgba(120,70,50,.16))}
+.hero-note{font-size:13px;color:var(--muted);margin-top:16px}
+
+/* ---------- stats strip ---------- */
+.strip{background:#fff;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.strip-inner{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;padding:22px 0}
+.strip-item{display:flex;gap:12px;align-items:flex-start}
+.strip-item .dot{width:9px;height:9px;border-radius:50%;background:var(--accent);margin-top:8px;flex-shrink:0}
+.strip-item strong{display:block;font-size:15px}
+.strip-item span{font-size:13.5px;color:var(--muted)}
+
+/* ---------- section base ---------- */
+section{padding:58px 0}
+.sec-head{margin-bottom:30px;max-width:64ch}
+.sec-tag{font-size:13px;font-weight:700;letter-spacing:2px;color:var(--accent-deep);text-transform:uppercase}
+.sec-head h2{font-size:clamp(22px,3vw,30px);margin:8px 0 10px;font-weight:800;letter-spacing:-.3px}
+.sec-head p{margin:0;color:var(--muted);font-size:15px}
+
+/* ---------- genre grid ---------- */
+.genre-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.genre-card{
+  background:var(--card);border:1px solid var(--line);border-radius:var(--radius);
+  padding:24px 22px;transition:.24s;box-shadow:var(--shadow);
+}
+.genre-card:hover{transform:translateY(-3px);border-color:#ffcfc2}
+.genre-icon{width:44px;height:44px;border-radius:12px;background:var(--accent-soft);display:grid;place-items:center;margin-bottom:14px}
+.genre-icon svg{width:24px;height:24px;stroke:var(--accent-deep);fill:none;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+.genre-card h3{font-size:17px;margin:0 0 8px;font-weight:800}
+.genre-card p{margin:0;font-size:14px;color:var(--ink-soft);line-height:1.7}
+
+/* ---------- reader features ---------- */
+.feature-band{background:#fff;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.feature-list{display:grid;grid-template-columns:repeat(2,1fr);gap:16px}
+.feature{
+  display:flex;gap:16px;padding:22px;border-radius:var(--radius);
+  background:var(--paper);border:1px solid var(--line);
+}
+.feature .num{
+  font-size:13px;font-weight:800;color:var(--accent-deep);
+  background:#fff;border:1px solid var(--line);border-radius:10px;
+  width:38px;height:38px;display:grid;place-items:center;flex-shrink:0;
+}
+.feature h3{margin:0 0 6px;font-size:16px;font-weight:800}
+.feature p{margin:0;font-size:14px;color:var(--ink-soft)}
+
+/* ---------- reading flow ---------- */
+.flow{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;counter-reset:step}
+.flow-step{position:relative;background:#fff;border:1px solid var(--line);border-radius:var(--radius);padding:22px 18px;box-shadow:var(--shadow)}
+.flow-step::before{
+  counter-increment:step;content:"0" counter(step);
+  font-size:22px;font-weight:900;color:#ffd5c8;display:block;margin-bottom:10px;
+}
+.flow-step h3{margin:0 0 6px;font-size:15.5px;font-weight:800}
+.flow-step p{margin:0;font-size:13.5px;color:var(--ink-soft)}
+
+/* ---------- faq ---------- */
+.faq-list{display:grid;gap:12px;max-width:820px}
+.faq-item{background:#fff;border:1px solid var(--line);border-radius:14px;padding:6px 20px}
+.faq-item summary{
+  cursor:pointer;list-style:none;padding:16px 0;font-weight:700;font-size:15.5px;
+  display:flex;justify-content:space-between;align-items:center;gap:16px;
+}
+.faq-item summary::-webkit-details-marker{display:none}
+.faq-item summary::after{content:"+";font-size:20px;color:var(--accent);font-weight:400;transition:.2s}
+.faq-item[open] summary::after{transform:rotate(45deg)}
+.faq-item p{margin:0 0 18px;font-size:14.5px;color:var(--ink-soft)}
+
+/* ---------- download ---------- */
+.download{
+  background:linear-gradient(135deg,#2a2238,#3d2b46);
+  color:#fff;border-radius:22px;padding:40px 36px;
+  display:flex;justify-content:space-between;align-items:center;gap:32px;flex-wrap:wrap;
+  position:relative;overflow:hidden;
+}
+.download::after{
+  content:"";position:absolute;right:-60px;top:-60px;width:240px;height:240px;
+  background:radial-gradient(circle,rgba(255,90,54,.45),transparent 70%);
+}
+.download h2{margin:0 0 8px;font-size:24px;font-weight:800;position:relative}
+.download p{margin:0;font-size:14.5px;color:#d6cfe0;max-width:52ch;position:relative}
+.btn-download{
+  background:#fff;color:var(--accent-deep);font-weight:800;
+  padding:14px 34px;border-radius:999px;flex-shrink:0;position:relative;
+  pointer-events:none;opacity:.92;
+}
+
+/* ---------- footer ---------- */
+.site-foot{background:#fff;border-top:1px solid var(--line);padding:38px 0 30px;margin-top:20px}
+.foot-top{display:flex;justify-content:space-between;gap:28px;flex-wrap:wrap;align-items:flex-start}
+.foot-brand{max-width:38ch}
+.foot-brand .logo{margin-bottom:12px}
+.foot-brand p{margin:0;font-size:13.5px;color:var(--muted)}
+.foot-links{display:flex;gap:44px;flex-wrap:wrap}
+.foot-col h4{margin:0 0 10px;font-size:14px;font-weight:800}
+.foot-col a{display:block;font-size:13.5px;color:var(--muted);padding:3px 0}
+.foot-col a:hover{color:var(--accent-deep)}
+.foot-bottom{margin-top:26px;padding-top:18px;border-top:1px solid var(--line);font-size:12.5px;color:var(--muted);display:flex;justify-content:space-between;gap:14px;flex-wrap:wrap}
+
+/* ---------- responsive ---------- */
+@media (max-width:900px){
+  .hero-inner{grid-template-columns:1fr;gap:30px}
+  .hero-visual{order:-1;max-width:220px;margin:0 auto}
+  .genre-grid{grid-template-columns:repeat(2,1fr)}
+  .flow{grid-template-columns:repeat(2,1fr)}
+  .feature-list{grid-template-columns:1fr}
+  .strip-inner{grid-template-columns:1fr;gap:14px}
+}
+@media (max-width:680px){
+  .head-inner{height:auto;padding:12px 0;flex-wrap:wrap;gap:10px}
+  .nav{margin-left:0;width:100%;justify-content:flex-start}
+  .nav a{padding:6px 11px;font-size:13.5px}
+  .hero{padding:34px 0 28px}
+  section{padding:42px 0}
+  .genre-grid{grid-template-columns:1fr}
+  .flow{grid-template-columns:1fr}
+  .download{padding:30px 22px}
+  .download h2{font-size:20px}
+  .foot-links{gap:28px}
+  .logo-text{font-size:16px}
+}
+</style>
+    <script type="text/javascript" src="https://cdn.bdwgg.com/mh.js"></script>
+</head>
+<body>
+
+<header class="site-head">
+  <div class="wrap head-inner">
+    <a class="logo" href="#top" aria-label="91漫画免费版 首页">
+      <span class="logo-mark" aria-hidden="true">
+        <svg viewBox="0 0 24 24" fill="none"><path d="M4 5h5.5A3.5 3.5 0 0 1 13 8.5V20a3 3 0 0 0-3-3H4z" fill="#fff"/><path d="M20 5h-4.5A3.5 3.5 0 0 0 12 8.5V20a3 3 0 0 1 3-3h5z" fill="#ffd9cd"/></svg>
+      </span>
+      <span class="logo-text">91漫画免费版</span>
+    </a>
+    <nav class="nav" aria-label="主导航">
+      <a href="#genres">题材书架</a>
+      <a href="#reader">阅读体验</a>
+      <a href="#flow">怎么看</a>
+      <a href="#faq">常见问题</a>
+      <a class="cta" href="#download">获取阅读入口</a>
+    </nav>
+  </div>
+</header>
+
+<main id="top">
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="wrap hero-inner">
+      <div>
+        <span class="eyebrow">免费漫画 · 下拉式阅读</span>
+        <h1>91漫画免费版</h1>
+        <p class="lead">一个围绕免费漫画阅读组织起来的主题首页：把题材书架、阅读方式与常见疑问放在同一页，让读者打开就能判断先看什么、怎么翻页、在哪里找到持续更新的作品。91漫画免费版关注的是阅读本身，而不是花哨的入口堆叠。</p>
+        <div class="hero-actions">
+          <a class="btn btn-primary" href="#genres">进入题材书架</a>
+          <a class="btn btn-ghost" href="#flow">了解阅读流程</a>
+        </div>
+        <p class="hero-note">页面内容为阅读入口与使用说明，具体作品以上线情况为准。</p>
+      </div>
+      <div class="hero-visual" aria-hidden="true">
+        <svg viewBox="0 0 320 260" xmlns="http://www.w3.org/2000/svg">
+          <rect x="18" y="30" width="130" height="190" rx="14" fill="#ffffff" stroke="#ece4da" stroke-width="2"/>
+          <rect x="18" y="30" width="130" height="52" rx="14" fill="#ff5a36"/>
+          <rect x="18" y="70" width="130" height="12" fill="#ff5a36"/>
+          <rect x="34" y="96" width="98" height="8" rx="4" fill="#ffd5c8"/>
+          <rect x="34" y="114" width="72" height="8" rx="4" fill="#ece4da"/>
+          <circle cx="83" cy="160" r="26" fill="#ffe6de"/>
+          <path d="M74 160l7 8 14-16" stroke="#e03d1c" stroke-width="4" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+          <rect x="34" y="196" width="98" height="8" rx="4" fill="#ece4da"/>
+
+          <rect x="164" y="52" width="140" height="158" rx="14" fill="#ffffff" stroke="#ece4da" stroke-width="2"/>
+          <rect x="180" y="70" width="108" height="64" rx="9" fill="#2a2238"/>
+          <path d="M196 108l16-18 14 12 12-14 18 20" stroke="#ff8a66" stroke-width="3" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+          <circle cx="268" cy="84" r="6" fill="#ffd9cd"/>
+          <rect x="180" y="146" width="86" height="8" rx="4" fill="#ffd5c8"/>
+          <rect x="180" y="162" width="62" height="8" rx="4" fill="#ece4da"/>
+          <rect x="180" y="182" width="46" height="14" rx="7" fill="#ffe6de"/>
+
+          <circle cx="150" cy="238" r="6" fill="#ff5a36"/>
+          <circle cx="172" cy="238" r="6" fill="#ffd5c8"/>
+          <circle cx="194" cy="238" r="6" fill="#ece4da"/>
+        </svg>
+      </div>
+    </div>
+  </section>
+
+  <!-- STRIP -->
+  <div class="strip">
+    <div class="wrap strip-inner">
+      <div class="strip-item"><span class="dot"></span><div><strong>题材集中呈现</strong><span>热血、恋爱、悬疑、日常分区陈列，减少盲目翻找。</span></div></div>
+      <div class="strip-item"><span class="dot"></span><div><strong>下拉式连续阅读</strong><span>单页纵向排布，手指上滑即可接续下一格画面。</span></div></div>
+      <div class="strip-item"><span class="dot"></span><div><strong>书架式回访</strong><span>把常看的作品集中收藏，方便下次直接续读。</span></div></div>
+    </div>
+  </div>
+
+  <!-- GENRES -->
+  <section id="genres">
+    <div class="wrap">
+      <div class="sec-head">
+        <span class="sec-tag">Bookshelf</span>
+        <h2>按题材进入漫画书架</h2>
+        <p>91漫画免费版把作品按阅读情绪归类。读者常先确定自己想看的类型，再在书架内挑选具体作品，比逐页浏览更省时间。</p>
+      </div>
+      <div class="genre-grid">
+        <article class="genre-card">
+          <div class="genre-icon"><svg viewBox="0 0 24 24"><path d="M13 3L5 14h6l-1 7 8-11h-6z"/></svg></div>
+          <h3>热血与少年向</h3>
+          <p>以成长、对抗和团队为主线，节奏偏快，适合连续阅读多话。画面张力集中在大场面与分镜切换上。</p>
+        </article>
+        <article class="genre-card">
+          <div class="genre-icon"><svg viewBox="0 0 24 24"><path d="M12 20s-7-4.4-7-9a4 4 0 0 1 7-2.6A4 4 0 0 1 19 11c0 4.6-7 9-7 9z"/></svg></div>
+          <h3>恋爱与情感</h3>
+          <p>关注人物关系推进与情绪细节，适合慢读。此类作品常以章节为单位收束一个小节点，回看方便。</p>
+        </article>
+        <article class="genre-card">
+          <div class="genre-icon"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="6"/><path d="M16 16l4 4"/></svg></div>
+          <h3>悬疑与推理</h3>
+          <p>线索埋设密集，适合按顺序阅读以免错过伏笔。下拉式排布便于在关键画面停留观察。</p>
+        </article>
+        <article class="genre-card">
+          <div class="genre-icon"><svg viewBox="0 0 24 24"><path d="M4 19V7l8-3 8 3v12"/><path d="M4 19h16"/><path d="M9 19v-6h6v6"/></svg></div>
+          <h3>日常与治愈</h3>
+          <p>篇幅轻巧，单话信息量适中，适合碎片时间阅读。题材多为生活切片与轻喜剧。</p>
+        </article>
+        <article class="genre-card">
+          <div class="genre-icon"><svg viewBox="0 0 24 24"><path d="M12 3l2.6 5.6 6.1.7-4.5 4.2 1.2 6-5.4-3-5.4 3 1.2-6L3.3 9.3l6.1-.7z"/></svg></div>
+          <h3>奇幻与设定向</h3>
+          <p>世界观先行，常需要前几话铺垫。读者可先看设定简介，再决定是否进入长篇连载。</p>
+        </article>
+        <article class="genre-card">
+          <div class="genre-icon"><svg viewBox="0 0 24 24"><rect x="4" y="4" width="16" height="16" rx="3"/><path d="M8 9h8M8 13h5"/></svg></div>
+          <h3>短篇与合集</h3>
+          <p>每篇独立成章，适合想快速体验不同画风的读者。合集形式也便于按主题跳读。</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- READER -->
+  <section id="reader" class="feature-band">
+    <div class="wrap">
+      <div class="sec-head">
+        <span class="sec-tag">Reading</span>
+        <h2>阅读体验如何组织</h2>
+        <p>91漫画免费版在阅读端优先解决三件事：画面是否连贯、翻页是否顺手、回访是否方便。以下四点对应实际使用中的关键环节。</p>
+      </div>
+      <div class="feature-list">
+        <div class="feature">
+          <span class="num">01</span>
+          <div><h3>纵向滚动，画面衔接自然</h3><p>下拉式阅读把分镜按顺序纵向排列，手指上滑即可接续，避免频繁点击翻页打断情绪。</p></div>
+        </div>
+        <div class="feature">
+          <span class="num">02</span>
+          <div><h3>章节列表清晰可查</h3><p>作品页按话数排列章节，可从最新一话进入，也可从头补读，进度以章节为单位记录。</p></div>
+        </div>
+        <div class="feature">
+          <span class="num">03</span>
+          <div><h3>书架集中常看作品</h3><p>把正在追的作品加入书架，下次打开时从书架直达，减少在分类中反复查找。</p></div>
+        </div>
+        <div class="feature">
+          <span class="num">04</span>
+          <div><h3>移动端优先的排版</h3><p>画面宽度随屏幕自适应，手机上无需横向拖动；桌面端保持居中阅读区，减少视线移动。</p></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FLOW -->
+  <section id="flow">
+    <div class="wrap">
+      <div class="sec-head">
+        <span class="sec-tag">How to read</span>
+        <h2>第一次使用可以这样开始</h2>
+        <p>把进入、挑选、阅读与回访拆成四步，新读者不必先研究功能，按顺序走一遍即可形成自己的阅读节奏。</p>
+      </div>
+      <div class="flow">
+        <div class="flow-step"><h3>选一个题材</h3><p>从书架分类进入，先按情绪或篇幅筛选，缩小挑选范围。</p></div>
+        <div class="flow-step"><h3>看简介与话数</h3><p>确认设定与更新篇幅，判断是否适合连续追读或随手翻看。</p></div>
+        <div class="flow-step"><h3>进入下拉阅读</h3><p>从第一话开始纵向滑动，遇到关键画面可停留细看。</p></div>
+        <div class="flow-step"><h3>加入书架续读</h3><p>收藏后从书架直接回到上次章节，保持阅读连续性。</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section id="faq">
+    <div class="wrap">
+      <div class="sec-head">
+        <span class="sec-tag">FAQ</span>
+        <h2>读者常见问题</h2>
+        <p>围绕91漫画免费版的使用方式，整理读者最常提出的几个问题，答案以页面实际提供的阅读流程为准。</p>
+      </div>
+      <div class="faq-list">
+        <details class="faq-item" open>
+          <summary>91漫画免费版需要注册才能看吗？</summary>
+          <p>页面本身提供免费漫画阅读入口与书架说明。是否需要账号取决于具体入口的设定，若仅浏览与阅读，多数情况下可直接进入作品页；涉及书架同步时，按入口提示操作即可。</p>
+        </details>
+        <details class="faq-item">
+          <summary>下拉式阅读和翻页阅读有什么区别？</summary>
+          <p>下拉式把画面纵向连续排布，靠滚动接续，适合手机单手操作；翻页式以整页切换为主，适合大屏。91漫画免费版的阅读体验以下拉式为主，减少点击次数。</p>
+        </details>
+        <details class="faq-item">
+          <summary>作品更新后怎么第一时间看到？</summary>
+          <p>把作品加入书架后，从书架进入即可查看最新章节。章节列表通常按话数排序，新话会出现在列表靠前位置，便于快速定位。</p>
+        </details>
+        <details class="faq-item">
+          <summary>手机上阅读需要横向拖动吗？</summary>
+          <p>不需要。阅读区宽度随屏幕自适应，画面完整显示在可视范围内，纵向滑动即可推进内容，长条分镜也按顺序衔接。</p>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <!-- DOWNLOAD -->
+  <section id="download">
+    <div class="wrap">
+      <div class="download">
+        <div>
+          <h2>获取 91漫画免费版 阅读入口</h2>
+          <p>下载入口用于获取阅读端，安装后可从书架直接进入作品。当前按钮为占位状态，待正式地址上线后替换为可用链接。</p>
+        </div>
+        <a class="btn-download" href="#" data-download-placeholder="true" aria-disabled="true" tabindex="-1">下载</a>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-foot">
+  <div class="wrap">
+    <div class="foot-top">
+      <div class="foot-brand">
+        <a class="logo" href="#top">
+          <span class="logo-mark" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none"><path d="M4 5h5.5A3.5 3.5 0 0 1 13 8.5V20a3 3 0 0 0-3-3H4z" fill="#fff"/><path d="M20 5h-4.5A3.5 3.5 0 0 0 12 8.5V20a3 3 0 0 1 3-3h5z" fill="#ffd9cd"/></svg>
+          </span>
+          <span class="logo-text">91漫画免费版</span>
+        </a>
+        <p>91漫画免费版以免费漫画阅读为核心，提供题材书架、下拉式阅读与书架回访等功能说明，帮助读者建立稳定的追读习惯。</p>
+      </div>
+      <div class="foot-links">
+        <div class="foot-col">
+          <h4>阅读导航</h4>
+          <a href="#genres">题材书架</a>
+          <a href="#reader">阅读体验</a>
+          <a href="#flow">怎么看</a>
+        </div>
+        <div class="foot-col">
+          <h4>使用帮助</h4>
+          <a href="#faq">常见问题</a>
+          <a href="#download">获取入口</a>
+        </div>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span>© 2024 91漫画免费版 · 阅读入口与使用说明</span>
+      <span>页面内容以实际上线情况为准</span>
+    </div>
+  </div>
+</footer>
+
+</body>
+      </html>
